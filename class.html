@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <h2>Click the button</h2>
+ <!--Inline Js-->
+<button onclick="alert('This is an inline JavaScript!')">Click Inline</button>
+<button onclick="displayAll()">Internal</button>
+
+<p id="demo">this is a boy</p>
+<h2 id="martins">Martins</h2>
+
+
+
+<!--Internal Js-->
+<script>
+    function displayAll() {
+        alert('Internal Javascript');
+    }
+
+    document.getElementById("demo").innerHTML = "<h2>Hello Guys</h2>";
+    document.getElementById("martins").innerText = "Destiny"
+
+    /* document.write( 50 + 6)
+    console.log(5+20)
+   */
+</script>
+
+<!--External Js-->
+<script src="script.js"></script>
+</body>
+</html>
