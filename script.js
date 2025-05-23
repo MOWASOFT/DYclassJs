@@ -30,19 +30,6 @@ Basic Javascript Operators
 3. Comparison Operators ( ==, ===, !=, > , <)
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 let a;
 a = 5
 console.log(a)
