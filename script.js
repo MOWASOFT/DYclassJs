@@ -30,7 +30,7 @@ Basic Javascript Operators
 3. Comparison Operators ( ==, ===, !=, > , <)
 */
 
-let a;
+/* let a;
 a = 5
 console.log(a)
 
@@ -67,3 +67,39 @@ let age = 15
 const address = 'Benin'
 
 console.log('My name is ' + name +', I am ' + age + ' i live in ' + address);
+
+
+
+
+ Funtions in Javascript
+ 1. Help us organize code
+ 2. Avoid repeating same code
+ 3. Helps us to perform task
+ for function to work you need to call it.
+*/
+
+function greets() {
+    alert('Welcome to Javascript')
+};
+
+
+
+/* function funtionName ( Argument ) {
+    //task or instruction
+} */
+
+function greet(name, lastName) {
+    console.log('Hello ' + name + lastName);
+}
+
+greet('Martins', ' John')
+greet('Destiny', ' boy')
+
+function calculateSum (a,b) {
+    return a + b
+}
+
+let result = calculateSum(5,6);
+console.log('Your sum is: ' , result)
+
+console.log(result)
