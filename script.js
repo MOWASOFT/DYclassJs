@@ -77,7 +77,7 @@ console.log('My name is ' + name +', I am ' + age + ' i live in ' + address);
  3. Helps us to perform task
  for function to work you need to call it.
 */
-
+/*
 function greets() {
     alert('Welcome to Javascript')
 };
@@ -87,7 +87,7 @@ function greets() {
 /* function funtionName ( Argument ) {
     //task or instruction
 } */
-
+/*
 function greet(name, lastName) {
     console.log('Hello ' + name + lastName);
 }
@@ -102,4 +102,18 @@ function calculateSum (a,b) {
 let result = calculateSum(5,6);
 console.log('Your sum is: ' , result)
 
-console.log(result)
+console.log(result) */
+
+
+  function displayInfo() {
+            //Get input Value
+            let name = document.getElementById("nameInput").value;
+            let age = document.getElementById("ageInput").value;
+            let isStudent = document.getElementById("statusInput").value;
+
+            //Display Result
+            document.getElementById("studentName").innerText = name;
+            document.getElementById("studentAge").innerText = age;
+            document.getElementById("studentStatus").innerText = "" + (isStudent === "true" ? "Yes" : "No");
+        }
+       
