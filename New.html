@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+           }
+        h2 {
+            color: black;
+        }
+        input[type="number"]{
+            padding: 10px;
+            margin: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #1c7d1f;
+        }
+
+        #tipResult {
+            margin-top: 20px;
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tip Calculator</h2>
+    <input type="number" id="billAmount" placeholder="Enter Bill amount">
+    <input type="number" id="tipPercent" placeholder="Enter Tip amount">
+    <button onclick="calculateTip()">Calculate Tip</button>
+    <p id="tipResult"></p>
+    <h3 id="totalResult"></h3>
+
+
+    <script>
+        
+       function calculateTip() {
+           // Spell Terms
+           let bill = document.getElementById("billAmount").value;
+           let tip = document.getElementById("tipPercent").value;
+
+           //Declare Task
+           let tipAmount = (Number(bill) * Number(tip)) / 100;
+           
+            let totalBill = (Number(bill) + Number(tipAmount));
+            
+
+           //Result Display
+           document.getElementById("tipResult").innerText = "Your tip is $" + tipAmount;
+           document.getElementById("totalResult").innerText = "Your Bill is $" + totalBill;
+        
+       }
+
+    </script>
+</body>
+</html>
