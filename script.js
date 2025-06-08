@@ -116,4 +116,6 @@ console.log(result) */
             document.getElementById("studentAge").innerText = age;
             document.getElementById("studentStatus").innerText = "" + (isStudent === "true" ? "Yes" : "No");
         }
+
+        
        

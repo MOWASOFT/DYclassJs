@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bill Splitter with Tax</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .results {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .results p {
+      font-size: 18px;
+      color: #333;
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Bill Splitter with Tax</h2>
+
+  <input type="number" id="person1" placeholder="Person 1 Bill">
+  <input type="number" id="person2" placeholder="Person 2 Bill">
+  <input type="number" id="person3" placeholder="Person 3 Bill">
+  <input type="number" id="tax" placeholder="Tax">
+  <br>
+  <button onclick="calculateBill()">Calculate</button>
+  <div class="results" id="results"></div>
+
+  <script>
+
+    function calculateBill() {
+        //Get Values
+        const bill1 = Number(document.getElementById("person1").value);
+        const bill2 = Number(document.getElementById("person2").value);
+        const bill3 = Number(document.getElementById("person3").value);
+        const taxPercent = Number(document.getElementById("tax").value);
+
+        //Calculate totals
+        const totalBill = bill1 + bill2 + bill3;
+        const taxAmount = (totalBill * taxPercent) / 100;
+        const grandTotal = totalBill + taxAmount;
+        const splitPerPerson = grandTotal / 3;
+
+        //show results
+
+        document.getElementById("results").innerHTML = `
+        <p><strong>Sum of Bills:</strong> $${totalBill.toFixed(2)} </p>
+        <p><strong>Tax Amount:</strong> $${taxAmount.toFixed(2)} </p>
+        <p><strong>Total Bill with Tax:</strong> $${grandTotal.toFixed(2)} </p>
+        <p><strong>Split (Each Person Pays):</strong> $${splitPerPerson.toFixed(2)} </p>
+        `;
+    }
+
+  </script>
