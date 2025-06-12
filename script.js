@@ -12,13 +12,13 @@ Variables ---> they are used to store data.
 
 1. var  ----> Old browsers use this
 2. let ----> To be used by u for  data that can be changed
-3. const -----> to be used for datas that cant be changed
+3. const -----> also known as constant, to be used for datas that cant be changed
 
 Pry Data types in Javascript
-1. String  ----> Text (always in quote)  '' ""
+1. String  ----> Text (always in quote)  '' "" eg. "Martins" or 'Martins'
 2. Number ----> 5, 5.34 
 3. Boolean ----> true, false.
-4. Null ----> null (No)
+4. Null ----> null (No) or nothing
 5. Undefined ----> no value given
 6. Object ----> Group of Values
 7. Array  ------> same types of single values
