@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM SIMULATOR</title>
+      <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f4f4f4;
+    }
+    .screen {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    button, input {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+    <h2>ATM SIMULATOR</h2>
+    <!--Start Screen-->
+    <div id="startScreen" class="screen active">
+    <p>Welcome to WemaBank</p>
+    <button onclick="showScreen('languageScreen')">Insert Card</button>
+    </div>
+
+    <!--Language Selector-->
+    <div id="languageScreen" class="screen">
+        <p>Select Language</p>
+        <button onclick="showScreen('pinScreen')">English</button>
+    </div>
+
+    <!--Pin Entry-->
+    <div id="pinScreen" class="screen">
+        <p>Enter your 4-digit PIN</p>
+        <input type="password" id="pinInput">
+        <Enter onclick="checkPIN()">Enter</button>
+        <p id="pinError" style="color: red;"></p>
+    </div>
+
+    <!--Main Menu-->
+    <div id="menuScreen" class="screen">
+        <p>Main Menu</p>
+        <button onclick="showScreen('withdrawScreen')">Withdraw</button>
+        <button onclick="checkBalance()">Check Balance</button>
+        <button onclick="showScreen('depositScreen')">Deposit</button>
+        <button onclick="showScreen('changePinScreen')">Change PIN</button>
+        <button onclick="exitATM()">Exit</button>
+        <p id="menuMessage"></p>
+    </div>
+     <!-- Withdraw Screen -->
+  <div id="withdrawScreen" class="screen">
+    <p>Withdraw Amount</p>
+    <input id="withdrawAmount" type="number">
+    <button onclick="withdraw()">Confirm</button>
+    <button onclick="showScreen('menuScreen')">Back</button>
+  </div>
+
+  <!-- Deposit Screen -->
+  <div id="depositScreen" class="screen">
+    <p>Deposit Amount</p>
+    <input id="depositAmount" type="number">
+     <button onclick="deposit()">Confirm</button>
+    <button onclick="showScreen('menuScreen')">Back</button>
+  </div>
+
+  <!-- Change PIN Screen -->
+  <div id="changePinScreen" class="screen">
+    <p>Change Your PIN</p>
+    <input id="oldPin" type="password" placeholder="Old PIN"><br>
+    <input id="newPin" type="password" placeholder="New PIN"><br>
+    <input id="confirmNewPin" type="password" placeholder="Confirm New PIN"><br>
+    <button onclick="changePIN()">Change</button>
+    <button onclick="showScreen('menuScreen')">Back</button>
+    <p id="pinChangeMsg"></p>
+  </div>
+ <script>
+    // Set initial values for PIN, balance, and failed attempts
+    let correctPIN = "1234";
+    let balance = 10000;
+    let attempts = 0;
+  function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
+    }
+     
+
+    // Function to validate the entered PIN
+    function checkPIN() {
+      const pin = document.getElementById("pinInput").value;
+
+      if (pin === correctPIN) {
+        // If PIN is correct, show the menu screen and reset attempts
+        showScreen('menuScreen');
+        document.getElementById("pinError").innerText = "";
+        attempts = 0;
+      } else {
+        // If wrong, increase attempt counter
+        attempts++;
+        document.getElementById("pinError").innerText = "Incorrect PIN (" + attempts + "/3)";
+
+        // If 3 failed attempts, block and return to start
+        if (attempts >= 3) {
+          alert("Card blocked due to multiple failed attempts.");
+          showScreen('startScreen');
+          attempts = 0;
+        }
+      }
+    }
+
+    // Function to check and display the balance
+    function checkBalance() {
+      document.getElementById("menuMessage").innerText = "Balance: ₦" + balance;
+    }
+
+    // Function to handle withdrawing money
+    function withdraw() {
+      let amount = Number(document.getElementById("withdrawAmount").value);
+
+      if (amount > 0 && amount <= balance) {
+        balance -= amount; // Reduce balance
+        alert("₦" + amount + " withdrawn. New balance: ₦" + balance);
+        showScreen('menuScreen');
+      } else {
+        alert("Invalid amount or insufficient balance");
+      }
+    }
+
+    // Function to deposit money
+    function deposit() {
+      let amount = Number(document.getElementById("depositAmount").value);
+
+      if (amount > 0) {
+        balance += amount; // Add to balance
+        alert("₦" + amount + " deposited. New balance: ₦" + balance);
+        showScreen('menuScreen');
+      } else {
+        alert("Enter a valid amount");
+      }
+    }
+
+    // Function to change the PIN
+    function changePIN() {
+      let old = document.getElementById("oldPin").value;
+      let newPin = document.getElementById("newPin").value;
+      let confirmPin = document.getElementById("confirmNewPin").value;
+
+      if (old === correctPIN && newPin === confirmPin && newPin.length === 4) {
+        correctPIN = newPin; // Set new PIN
+        document.getElementById("pinChangeMsg").innerText = "PIN changed successfully ✅";
+      } else {
+        document.getElementById("pinChangeMsg").innerText = "Error: Check inputs";
+      }
+    }
+
+    // Function to end the ATM session
+    function exitATM() {
+      alert("Thank you for using our ATM.");
+      showScreen('startScreen');
+    }
+
+
+
+
+
+
+
+ </script>
+
+    
+</body>
+</html>

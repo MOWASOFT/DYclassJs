@@ -105,7 +105,7 @@ console.log('Your sum is: ' , result)
 console.log(result) */
 
 
-  function displayInfo() {
+ /* function displayInfo() {
             //Get input Value
             let name = document.getElementById("nameInput").value;
             let age = document.getElementById("ageInput").value;
@@ -117,5 +117,93 @@ console.log(result) */
             document.getElementById("studentStatus").innerText = "" + (isStudent === "true" ? "Yes" : "No");
         }
 
+        let name = 'Martins'
+        console.log(name)
+
+        name = "John"
+        console.log(name)
+
+        const age = 16
+        console.log(age)
+
+        // ''  or " "
+
+        let boy = 'david'
+
+        let girl = null
+
+        let guy;
+
+        guy = "Peter"
+
+        console.log(guy)
+     
+        //Object
+        let person1 = {
+            name: 'Samuel',
+            age: 10,
+            isStudent: true,
+        }
+
+       console.log (person1.name)
+       console.log(person1)
+
+       //Arrays
+
+       let jacobSons = [ 'Judah', 'Simon', 'Joseph', 'Benjamin', 'Gad']; // count from 0
+
+       console.log(jacobSons)
+
+       // Array of Objects
+
+       let students = [
+        {name: 'Ben' , age: 12},
+        {name: 'Mark', age: 13}
+       ]
+
+       console.log(students[0].age)
+
+       //Object with Array
+
+       let football = {
+        EPL: 'England',
+        Teams: ['Arsenal', 'Chelsea','ManU', 'ManCity']
+       }
+      
+
+       console.log(football.EPL)
+       
+       console.log(football.Teams[1])
+
+
+       */
+
+
+       // Arithmetic Operators use for basic Maths. +, - , * , /, % (Modlus -remainder), **(Exponential), ++(increment), --(decrement),
+
+       5 + 2   //7
+       5 - 2   //3
+       5 * 2   //10
+       5 / 2  // 2.5
+       5 % 2 //  1
+       2 ** 3 // 8
+
+       // Assignment Operators = , += , -=, *=
+        
+       
+
+       // Comparism Operators ==, strict and loose equal to
+
+
+
+       
+
+
+
+
+
+
+
+        
         
        
