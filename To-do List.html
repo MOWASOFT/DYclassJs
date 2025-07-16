@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <style>
+        body{font-family: sans-serif; padding: 20px;}
+        input{padding: 6px 20px;}
+        button{padding: 6px 10px; background-color: rgb(28, 206, 28); color: white;}
+        li{margin: 8px 0; cursor: pointer;}
+        li.done {text-decoration: line-through; color: red;}
+
+    </style>
+</head>
+<body>
+    <h1>To-do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        // This function runs when the "Add" button is clicked
+function addTask() {
+  // Get the input field element from the HTML using its ID
+  const input = document.getElementById("taskInput");
+
+  // Get the text value that the user typed into the input field
+  const task = input.value;
+
+  // Check if the input is not empty (i.e., user typed something)
+  if (task !== "") {
+    // Create a new <li> (list item) element to hold the task
+    const li = document.createElement("li");
+
+    // Set the text of the <li> to the task entered by the user
+    li.innerText = task;
+
+    // When the user clicks on the task, do the following:
+    li.onclick = function () {
+      // If the task already has the "done" class (i.e., already marked as completed)
+      if (li.classList.contains("done")) {
+        // Ask the user to confirm if they want to delete it
+        if (confirm("Delete this task?")) {
+          // If user confirms, remove the task from the list
+          li.remove();
+        }
+      } else {
+        // If task is not yet marked as done, add the "done" class
+        // This applies the strikethrough and gray style (from CSS)
+        li.classList.add("done");
+      }
+    };
+
+    // Add the new task (<li>) to the list (<ul> with ID "taskList")
+    document.getElementById("taskList").appendChild(li);
+
+    // Clear the input field so the user can type a new task
+    input.value = "";
+  } else {
+    // If the user didn't type anything, show an alert
+    alert("Please enter a task");
+  }
+}
+
+
+    </script>
+</body>
+</html>
