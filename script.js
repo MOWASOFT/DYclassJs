@@ -195,6 +195,55 @@ console.log(result) */
        // Comparism Operators ==, strict and loose equal to
 
 
+       //Arrays
+
+       let fruits = ['Apple', 'Pear', 'Mango', 'Cherry', 'Orange' ]
+       //console.log(fruits)
+       // console.log(fruits[0])
+       //console.log(fruits.length)
+
+       // (.) dot notation
+       // to add to array ( .push ) last item
+
+        //fruits.push('Cashew')
+       //console.log(fruits)
+
+          // to add to array ( .unshift ) beginning
+
+        //fruits.unshift('Cucumber')
+        //console.log(fruits)
+
+        // to remove to array ( .shift ) beginning
+
+        //fruits.shift()
+        //console.log(fruits)
+
+         // to remove to array ( .pop ) last item
+
+         //fruits.pop()
+        //console.log(fruits)
+
+       //let numbers = [1, 2, 3, 4];
+
+        //let doubleNumbers = numbers.map(numbers => numbers*2);
+
+        //console.log(doubleNumbers)
+
+        // Simple to do list with only arrays.
+
+        let todos = ['Learn Javascript', 'Wash Plate', 'Read Bible'];
+        function addTask (task) {
+            todos.push(task);
+        }
+          
+
+          addTask('Exercise')
+          console.log(todos)
+
+
+
+
+
 
        
 
