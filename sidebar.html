@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+    <div id="sidebar" class="sidebar">
+        <a href="#" class="close-btn">&times;</a>
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Services</a>
+        <a href="">Contact</a>
+    </div>
+    <div class="main-content">
+        <h1>Welcome to my Website</h1>
+        <p>this is the main content area</p>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+         let openBtn = document.getElementById("toggleBtn");
+         let closeBtn = document.querySelector('.close-btn');
+         let sidebar = document.getElementById('sidebar');
+         let mainContent = document.getElementById('main-content');
+
+
+         openBtn.addEventListener ('click', () => {
+            sidebar.style.width = '250px';
+            mainContent.style.marginLeft = '250px';
+         } );
+
+         closeBtn.addEventListener ('click', () => {
+            sidebar.style.width = '0';
+            mainContent.style.marginLeft = '0';
+         } );
+
+
+    });
+
+    </script>
+</body>
+</html>
