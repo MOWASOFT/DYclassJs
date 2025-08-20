@@ -5,7 +5,7 @@
 2. innerTEXT     -----> Text of Html
 3. document.write()  -----> Testing
 4. alert() ------> Alert
-5. console.log()    ----->   Debugging
+5. console.log()  ----->  Debugging
 
 
 Variables ---> they are used to store data.
@@ -197,7 +197,7 @@ console.log(result) */
 
        //Arrays
 
-       let fruits = ['Apple', 'Pear', 'Mango', 'Cherry', 'Orange' ]
+      // let fruits = ['Apple', 'Pear', 'Mango', 'Cherry', 'Orange' ]
        //console.log(fruits)
        // console.log(fruits[0])
        //console.log(fruits.length)
@@ -231,7 +231,7 @@ console.log(result) */
 
         // Simple to do list with only arrays.
 
-        let todos = ['Learn Javascript', 'Wash Plate', 'Read Bible'];
+        /** let todos = ['Learn Javascript', 'Wash Plate', 'Read Bible'];
         function addTask (task) {
             todos.push(task);
         }
@@ -239,6 +239,35 @@ console.log(result) */
 
           addTask('Exercise')
           console.log(todos)
+          **/
+
+          // Objects ( store/group bunch of data)
+
+          let person = {
+            name: 'Destiny',
+            sex: 'male',
+            isStudent: false,
+          }
+
+          //console.log(person.name)
+         //add to object
+          person.age = 30;
+         
+
+          //console.log(person.age)
+
+         // replace object value
+
+         person.isStudent = true; 
+
+        // console.log(person.isStudent)
+
+        // delete value.
+
+        delete person.isStudent;
+
+        // console.log(person)
+
 
 
 
