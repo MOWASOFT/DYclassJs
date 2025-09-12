@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <!--Add Items-->
+        <div class="form-group">
+            <input type="text" id="itemName" placeholder="Item Name">
+            <input type="text" id="itemPrice" placeholder="Price (₦)">
+            <input type="text" id="itemQty" placeholder="Quantity" value="1" min="1">
+            <button onclick=" addItem()"> Add to Cart </button>
+        </div>
+        
+        <!---Cart Items-->
+        <ul id="cartList"></ul>
+
+        <!---Total-->
+        <div  class="total" id="totalPrice">Total: ₦0 </div>
+
+    </div>
+    <script>
+        let cart = [];
+        function addItem() {
+            const name = document.getElementById("itemName").value;
+            const price = parseInt(document.getElementById("itemPrice").value);
+            const qty = parseInt(document.getElementById("itemQty").value);
+
+            if( !name || isNaN(price) || isNaN (qty) || qty <= 0) {
+                alert ("Please enter valid item details.");
+                return;
+            }
+
+            // && ( and ) || ( or ) , isNaN ( is Not a Number) !== 
+
+            // Add item as Object
+
+            cart.push({name, price, quantity: qty});
+
+            // Clear inputs
+
+            document.getElementById("itemName").value = "";
+            document.getElementById("itemPrice").value = "";
+            document.getElementById("itemQty").value = 1;
+
+            displayCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1); // remove item at given index 
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartList = document.getElementById("cartList");
+            cartList.innerHTML = "";
+
+            let total = 0;
+
+            cart.forEach((product, index) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+            ${product.name} x${product.quantity} = ₦${product.price * product.quantity}
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        `;
+        cartList.appendChild(li);
+
+        total += product.price * product.quantity;
+            });
+        
+        document.getElementById("totalPrice").innerText = "Total: ₦" + total;
+
+        }
+
+       
+    </script>
+</body>
+</html>
